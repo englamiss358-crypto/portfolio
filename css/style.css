@@ -1,0 +1,350 @@
+/* =========================
+   GLOBAL VARIABLES
+========================= */
+:root{
+  --primary:#D81B60;         /* الرئيسي */
+  --accent:#E91E63;          /* قوي للهوفر */
+  --light:#FFFFFF;           /* أبيض */
+  --soft:#F9D2E4;            /* وردي فاتح للأقسام */
+  --text:#333;
+  --radius:8px;
+  --max-width:1200px;
+  --font:"Poppins",sans-serif;
+  --title:"Montserrat",sans-serif;
+}
+
+/* Global Reset */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:var(--font);
+  color:var(--text);
+  background:var(--light);
+  line-height:1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+header{
+  background:var(--light);
+  padding:15px 0;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.HEADER-TOP{
+  max-width:var(--max-width);
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:0 20px;
+}
+
+.LOGO-BOX img{
+  width:85px;
+  height:auto;
+}
+
+.header-title h1{
+  font-family:var(--title);
+  font-size:26px;
+  color:var(--primary);
+}
+.header-title p{
+  margin-top:-3px;
+  color:#555;
+}
+
+/* Navigation */
+.header-nav{
+  border-top:1px solid rgba(0,0,0,0.05);
+  background:white;
+}
+
+.header-nav ul{
+  list-style:none;
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  padding:13px 0;
+}
+
+.header-nav a{
+  color:#444;
+  font-size:16px;
+  text-decoration:none;
+  font-weight:500;
+  padding:6px 12px;
+  border-radius:var(--radius);
+  transition:.3s;
+}
+.header-nav a:hover,
+.header-nav a.active{
+  color:#fff;
+  background:var(--primary);
+}
+
+/* =========================
+   HERO
+========================= */
+.hero{
+  padding:80px 20px;
+  text-align:center;
+  background:var(--soft);
+}
+
+.hero h2{
+  font-family:var(--title);
+  font-size:2.3rem;
+  color:var(--primary);
+}
+
+.hero-description{
+  margin:15px auto 30px;
+  max-width:700px;
+  color:#444;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.hero-buttons button{
+  padding:12px 22px;
+  border:none;
+  border-radius:var(--radius);
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.hero-buttons button:nth-child(1){
+  background:var(--primary);
+  color:white;
+}
+.hero-buttons button:nth-child(1):hover{
+  background:var(--accent);
+}
+
+.hero-buttons button:nth-child(2),
+.hero-buttons button:nth-child(3){
+  background:#ffe4ef;
+  color:var(--primary);
+}
+.hero-buttons button:nth-child(2):hover,
+.hero-buttons button:nth-child(3):hover{
+  background:var(--primary);
+  color:white;
+}
+
+/* =========================
+   ABOUT
+========================= */
+#about{
+  padding:80px 20px;
+  background:white;
+  text-align:center;
+}
+
+#about > div{
+  max-width:var(--max-width);
+  margin:auto;
+}
+
+#about img{
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  border:4px solid var(--soft);
+  object-fit:cover;
+  margin-bottom:20px;
+}
+
+#about h2{
+  font-family:var(--title);
+  font-size:2rem;
+  color:var(--primary);
+}
+#about p{
+  max-width:700px;
+  margin:15px auto;
+  color:#444;
+}
+
+#about ul{
+  list-style:disc;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px 25px;
+  margin-top:15px;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+#projects{
+  background:var(--soft);
+  text-align:center;
+  padding:80px 20px;
+}
+
+#projects h2{
+  font-family:var(--title);
+  font-size:2rem;
+  color:var(--primary);
+}
+.project-card img {
+    width: 100%;
+    height: 200px;          /* تقدري تغيري الارتفاع حسب ذوقك */
+    object-fit: cover;      /* يمنع تشوه الصورة ويقصها بذكاء */
+    border-radius: 10px;    /* حواف ناعمة */
+    margin-bottom: 15px;    /* مسافة بين الصورة والعنوان */
+    display: block;
+}
+
+.projects-container{
+  max-width:var(--max-width);
+  margin:40px auto 0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
+}
+
+.project-card{
+  background:white;
+  padding:20px;
+  max-width:300px;
+  border-radius:var(--radius);
+  box-shadow:0 4px 10px rgba(0,0,0,.05);
+  transition:.3s;
+}
+.project-card:hover{transform:translateY(-6px);}
+
+.project-card img{
+  width:100%;
+  border-radius:var(--radius);
+}
+.project-card h3{
+  color:var(--accent);
+  margin:10px 0;
+}
+.project-card .btn{
+  display:inline-block;
+  background:var(--primary);
+  color:white;
+  padding:10px 20px;
+  border-radius:var(--radius);
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+.project-card .btn:hover{
+  background:var(--accent);
+}
+/*========= contact me =======*/
+.contact-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    font-size: 18px;
+    color: #333;
+}
+
+.contact-details p {
+    margin: 5px 0;
+    font-size: 17px;
+}
+
+.contact-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 20px auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    opacity: 0.8;
+}
+
+.social-links {
+    margin-top: 15px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer{
+  background:var(--primary);
+  color:white;
+  text-align:center;
+  padding:60px 20px;
+}
+
+footer .social-links{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  margin:20px 0;
+}
+
+footer .social-links a{
+  font-size:1.4rem;
+  color:white;
+  transition:.3s;
+}
+footer .social-links a:hover{
+  transform:scale(1.2);
+  color:var(--soft);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:768px){
+  .header-nav ul{flex-direction:column;gap:15px;}
+  .hero h2{font-size:1.9rem;}
+  #about img{width:150px;height:150px;}
+  .projects-container{flex-direction:column;}
+}

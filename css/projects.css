@@ -1,0 +1,114 @@
+/* ================================
+   Project Pages Style
+   ================================ */
+:root {
+  --primary-color: #D81B60;   
+  --secondary-color: #FFC1E3; 
+  --accent-color: #E91E63;    
+  --text-color: #333;
+  --bg-light: #fff;
+  --bg-soft: #f8f8f8;
+  --radius: 10px;
+}
+
+/* ===== Page Header ===== */
+.project-header {
+  text-align: center;
+  padding: 80px 20px;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.project-header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.project-header p {
+  font-size: 1rem;
+  color: #4a0033;
+}
+
+/* ===== Main Project Layout ===== */
+.project-details {
+  max-width: 1100px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 0 20px;
+  align-items: center;
+}
+
+/* Image Section */
+.project-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0,0,0,.1);
+}
+
+/* Information Section */
+.project-info h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.project-info p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.project-info ul {
+  line-height: 1.8;
+  padding-left: 18px;
+  margin-bottom: 20px;
+}
+
+.project-info ul li {
+  margin-bottom: 6px;
+}
+
+/* Buttons */
+.project-info .btn,
+.back-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: .3s;
+  margin-right: 10px;
+}
+
+/* Visit Website */
+.project-info .btn {
+  background: var(--primary-color);
+  color: white;
+}
+.project-info .btn:hover {
+  background: var(--accent-color);
+  transform: scale(1.05);
+}
+
+/* Back Button */
+.back-btn {
+  background: var(--secondary-color);
+  color: #4a0033;
+}
+.back-btn:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+/* ===== Responsive ===== */
+@media(max-width: 768px) {
+  .project-details {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .project-info ul {padding-left: 0;}
+}
