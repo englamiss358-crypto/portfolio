@@ -1,44 +1,74 @@
 /* ================================
-   MAIN JS – PRO STRUCTURE
+   MAIN JS
    ================================ */
 
-// Wait until DOM is fully loaded
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ================================
-       NAVIGATION ACTIVE LINK
+       ACTIVE NAV LINK ON SCROLL
        ================================ */
-    const navLinks = document.querySelectorAll(".header-nav a");
+    const sections  = document.querySelectorAll("section[id], header[id]");
+    const navLinks  = document.querySelectorAll(".header-nav a");
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.forEach(l => l.classList.remove("active"));
-            link.classList.add("active");
-        });
-    });
-
-    /* ================================
-       HERO BUTTONS EXAMPLE
-       ================================ */
-    const heroButtons = document.querySelectorAll(".hero-buttons button");
-
-    heroButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const action = button.textContent.trim().toLowerCase();
-
-            if(action.includes("projects")) {
-                document.getElementById("projects").scrollIntoView({ behavior: "smooth" });
-            } else if(action.includes("contact")) {
-                document.getElementById("footer").scrollIntoView({ behavior: "smooth" });
-            } else if(action.includes("register")) {
-                alert("Register button clicked! You can add your form popup here.");
+    const activateLink = () => {
+        let current = "";
+        sections.forEach(sec => {
+            if (window.scrollY >= sec.offsetTop - 120) {
+                current = sec.getAttribute("id");
             }
         });
+        navLinks.forEach(a => {
+            a.classList.toggle("active", a.getAttribute("href") === `#${current}`);
+        });
+    };
+
+    window.addEventListener("scroll", activateLink, { passive: true });
+    activateLink();
+
+    /* ================================
+       SCROLL-IN ANIMATIONS
+       ================================ */
+    const animatedEls = document.querySelectorAll(
+        ".project-card, .about-media, .about-content, .hero-copy, .hero-highlights, " +
+        ".highlight-card, .section-heading, .contact-layout"
+    );
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.12 }
+    );
+
+    animatedEls.forEach(el => {
+        el.classList.add("fade-up");
+        observer.observe(el);
     });
 
     /* ================================
-       ADD FUTURE JS FUNCTIONS HERE
+       CONTACT FORM FEEDBACK
        ================================ */
-    // Example: toggle mobile menu, animations, dynamic content, etc.
+    const contactForm = document.querySelector(".contact-form");
+    if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector("button[type='submit']");
+            const original = btn.textContent;
+            btn.textContent = "Message Sent ✓";
+            btn.style.background = "linear-gradient(135deg, #2c8a4a, #3daa5e)";
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.textContent = original;
+                btn.style.background = "";
+                btn.disabled = false;
+                contactForm.reset();
+            }, 3200);
+        });
+    }
 
 });

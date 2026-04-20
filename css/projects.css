@@ -1,114 +1,204 @@
 /* ================================
    Project Pages Style
    ================================ */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap');
+
 :root {
-  --primary-color: #D81B60;   
-  --secondary-color: #FFC1E3; 
-  --accent-color: #E91E63;    
-  --text-color: #333;
-  --bg-light: #fff;
-  --bg-soft: #f8f8f8;
-  --radius: 10px;
+  --primary:  #b21657;
+  --accent:   #f03f68;
+  --ink:      #23161d;
+  --muted:    #6f6170;
+  --surface:  #ffffff;
+  --soft:     #fff0f3;
+  --deep:     #ffe0e7;
+  --border:   rgba(178,22,87,0.12);
+  --shadow:   0 18px 45px rgba(114,18,59,0.12);
+  --radius:   26px;
+  --font:     "Manrope", sans-serif;
+  --title:    "Sora", sans-serif;
 }
 
-/* ===== Page Header ===== */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: var(--font);
+  color: var(--ink);
+  line-height: 1.7;
+  background:
+    radial-gradient(circle at top left, rgba(255,142,170,.2), transparent 28%),
+    linear-gradient(180deg, #fff8fa 0%, #fffdfd 40%, #fff7f9 100%);
+  min-height: 100vh;
+}
+
+img { max-width:100%; display:block; }
+a   { color:inherit; text-decoration:none; }
+
+/* ===== PAGE HEADER ===== */
 .project-header {
+  padding: 84px 24px 72px;
   text-align: center;
-  padding: 80px 20px;
-  background: var(--secondary-color);
-  color: var(--primary-color);
+  background: linear-gradient(135deg, #2c101c 0%, #511b31 100%);
+  color: #fff;
 }
 
 .project-header h1 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
+  font-family: var(--title);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  margin-bottom: 16px;
+  color: #fff;
 }
 
 .project-header p {
-  font-size: 1rem;
-  color: #4a0033;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.72);
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-/* ===== Main Project Layout ===== */
+/* ===== MAIN LAYOUT ===== */
 .project-details {
-  max-width: 1100px;
-  margin: 60px auto;
+  max-width: 1150px;
+  margin: 64px auto 80px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  padding: 0 20px;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 32px;
+  padding: 0 24px;
+  align-items: start;
 }
 
-/* Image Section */
+/* ===== IMAGE PANEL ===== */
+.project-image {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
 .project-image img {
   width: 100%;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 15px rgba(0,0,0,.1);
+  border-radius: calc(var(--radius) - 6px);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
 }
 
-/* Information Section */
+/* ===== INFO PANEL ===== */
+.project-info {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 36px;
+}
+
 .project-info h2 {
-  font-size: 1.8rem;
-  color: var(--primary-color);
-  margin-bottom: 15px;
+  font-family: var(--title);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  color: var(--ink);
+  line-height: 1.18;
+  margin-bottom: 16px;
+}
+
+.project-info h3 {
+  font-family: var(--title);
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin: 24px 0 10px;
 }
 
 .project-info p {
   font-size: 1rem;
-  line-height: 1.7;
-  color: var(--text-color);
-  margin-bottom: 20px;
+  color: var(--muted);
+  margin-bottom: 12px;
 }
 
 .project-info ul {
-  line-height: 1.8;
-  padding-left: 18px;
-  margin-bottom: 20px;
+  padding-left: 20px;
+  margin-bottom: 8px;
 }
 
 .project-info ul li {
+  color: var(--muted);
   margin-bottom: 6px;
 }
 
-/* Buttons */
+/* ===== STATUS BADGE ===== */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: var(--soft);
+  color: var(--primary);
+  font-size: .9rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* ===== BUTTONS ===== */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
 .project-info .btn,
 .back-btn {
-  display: inline-block;
-  padding: 12px 25px;
-  border-radius: var(--radius);
-  text-decoration: none;
-  font-weight: 600;
-  transition: .3s;
-  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.97rem;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-/* Visit Website */
 .project-info .btn {
-  background: var(--primary-color);
-  color: white;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  box-shadow: 0 14px 26px rgba(178,22,87,.22);
 }
 .project-info .btn:hover {
-  background: var(--accent-color);
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 30px rgba(178,22,87,.28);
 }
 
-/* Back Button */
 .back-btn {
-  background: var(--secondary-color);
-  color: #4a0033;
+  background: var(--soft);
+  color: var(--primary);
+  border: 1px solid rgba(178,22,87,.14);
 }
 .back-btn:hover {
-  background: var(--primary-color);
+  background: var(--primary);
   color: #fff;
+  transform: translateY(-2px);
 }
 
-/* ===== Responsive ===== */
-@media(max-width: 768px) {
+/* ===== RESPONSIVE ===== */
+@media (max-width: 840px) {
   .project-details {
     grid-template-columns: 1fr;
-    text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .project-info {
+    padding: 22px;
   }
 
-  .project-info ul {padding-left: 0;}
+  .btn-row {
+    flex-direction: column;
+  }
+
+  .project-info .btn,
+  .back-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
